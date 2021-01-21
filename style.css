@@ -1,5 +1,5 @@
 *{
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Chakra Petch', sans-serif;
 }
 
 body{
@@ -14,6 +14,7 @@ body{
     background-image:url(./backGroundWallpaper.jpg)
 }
 #scoreBar{
+    display: flex;
     width: 384px;
     height: 50px;
     z-index: 0;
@@ -31,11 +32,6 @@ body{
     margin-left: 1em;
 }
 
-}
-#scoreNum{
-    margin: 10px;
-}
-
 canvas{
     border: 1px solid lightblue;
     border-radius:0px 0px 12px 12px;
@@ -43,6 +39,9 @@ canvas{
 }
 
 h1{
-    font-size: 4rem;
-    margin:0;
-}
+    width: 90vw;
+    font-family: 'Chakra Petch', sans-serif;
+    color: green;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
