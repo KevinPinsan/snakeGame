@@ -45,3 +45,28 @@ h1{
     display: flex;
     align-items: center;
     margin-left: 1rem;
+}
+#restart{
+    width: 220px;
+    height: 80px;
+    background-color: white;
+    position: absolute;
+    z-index: 1;
+    display:none;
+}
+
+#restart p{
+    margin: 10px 0px 0px 0px;
+    text-align: center;
+}
+
+#restart ul{
+    display: flex;
+    justify-content: space-around;
+    margin: 0px;
+    padding: 0;
+}
+
+#restart li{
+    list-style: none;
+}
