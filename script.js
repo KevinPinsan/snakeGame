@@ -9,9 +9,11 @@ snake[0] = {
 }
 
 let food = {
-    x: Math.floor(Math.random() * 15 + 1,) * box,
+    x: Math.floor(Math.random() * 15 + 1) * box,
     y: Math.floor(Math.random() * 15 + 1) * box
 }
+
+
 
 let direction = "right";
 
@@ -22,7 +24,7 @@ function criarBG(){
 
 function makeSnake(){
     for(c = 0; c < snake.length; c++){
-        context.fillStyle = "black";
+        context.fillStyle = "green";
         context.fillRect(snake[c].x, snake[c].y, box, box);
     }
 }
@@ -40,6 +42,7 @@ function update(event) {
     if(event.keyCode == 39 && direction != "left") direction = "right"
     if(event.keyCode == 40 && direction != "up") direction = "down"
 }
+
 
 function play(){
 
@@ -67,12 +70,26 @@ function play(){
     if(direction == "up") snakeY -= box;
     if(direction == "down") snakeY += box;
 
-
     if(snakeX != food.x || snakeY != food.y){
-        snake.pop()     
+        snake.pop()
+
+        if(scoreNum > 0){
+            score(scoreNum);
+        }else{
+            score(scoreNum = 0);
+        }
+        score(scoreNum);
     }else{
         food.x = Math.floor(Math.random() * 15 + 1,) * box;
         food.y =Math.floor(Math.random() * 15 + 1) * box;
+        scoreNum++;
+        score(scoreNum);
+    }
+
+    function score(scoreNum){
+        
+        let score = document.getElementById("scoreNum")
+        score.innerHTML = `${scoreNum}`
     }
 
 
@@ -85,4 +102,4 @@ function play(){
     snake.unshift(newHead);
 }
 
-let game = setInterval(play, 110)
+let game = setInterval(play, 100)
