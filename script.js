@@ -13,6 +13,11 @@ let food = {
     y: Math.floor(Math.random() * 15 + 1) * box
 }
 
+let goldFood = {
+    x: Math.floor(Math.random() * 15 + 1) * box,
+    y: Math.floor(Math.random() * 15 + 1) * box
+}
+
 function criarBG(){
     context.fillStyle = "lightblue";
     context.fillRect(0, 0, 16 * (box*1.5), 16 * (box*1.5) );
@@ -24,10 +29,14 @@ function makeSnake(){
         context.fillRect(snake[c].x, snake[c].y, box, box);
     }
 }
-
 function drawFood(){
     context.fillStyle = "red";
     context.fillRect(food.x, food.y, box, box);
+}
+
+function drawGoldFood(){
+    context.fillStyle = "yellow";
+    context.fillRect(goldFood.x, goldFood.y, box, box);
 }
 
 document.addEventListener('keydown', update);
@@ -59,7 +68,8 @@ function play(){
     criarBG();
     makeSnake();
     drawFood();
-    
+    if(scoreNum >= this.goldFuitCondition)drawGoldFood();
+  
     let snakeX = snake[0].x;
     let snakeY = snake[0].y; 
 
@@ -69,18 +79,32 @@ function play(){
     if(direction == "down") snakeY += box;
 
     if(snakeX != food.x || snakeY != food.y){
-        snake.pop()
-
-        if(scoreNum > 0){
+        if(snakeX != goldFood.x || snakeY != goldFood.y){
+            snake.pop()
+            if(scoreNum > 0){
+                score(scoreNum);
+            }else{
+                score(scoreNum = 0);
+                this.goldFuitCondition = 5;
+            }
             score(scoreNum);
         }else{
-            score(scoreNum = 0);
+            goldFood.x = 9999;
+            goldFood.y = 9999;
+
+            setTimeout(()=>{
+                goldFood.x = Math.floor(Math.random() * 15 + 1) * box;
+                goldFood.y =Math.floor(Math.random() * 15 + 1) * box;
+            },100)
+
+            scoreNum += 2;
+            this.goldFuitCondition += Math.floor(Math.random() * 10 + 1);
+            score(scoreNum);
         }
-        score(scoreNum);
     }else{
         food.x = Math.floor(Math.random() * 15 + 1,) * box;
         food.y =Math.floor(Math.random() * 15 + 1) * box;
-        scoreNum++;
+        scoreNum += 1;
         score(scoreNum);
     }
 
