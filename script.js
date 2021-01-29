@@ -97,7 +97,7 @@ function play(){
                 goldFood.y =Math.floor(Math.random() * 15 + 1) * box;
             },100)
 
-            scoreNum += 2;
+            scoreNum += 3;
             this.goldFuitCondition += Math.floor(Math.random() * 10 + 1);
             score(scoreNum);
         }
