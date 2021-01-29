@@ -35,7 +35,7 @@ function drawFood(){
 }
 
 function drawGoldFood(){
-    context.fillStyle = "yellow";
+    context.fillStyle = "gold";
     context.fillRect(goldFood.x, goldFood.y, box, box);
 }
 
