@@ -1,6 +1,6 @@
 let canvas = document.getElementById("snake");
 let context = canvas.getContext("2d");
-let box = 16;
+let box = 22;
 
 let snake = [];
 snake[0] = {
@@ -20,7 +20,7 @@ let goldFood = {
 
 function criarBG(){
     context.fillStyle = "lightblue";
-    context.fillRect(0, 0, 16 * (box*1.5), 16 * (box*1.5) );
+    context.fillRect(0, 0, 22.690* (box), 22.699* (box) );
 }
 
 function makeSnake(){
@@ -68,7 +68,9 @@ function play(){
     criarBG();
     makeSnake();
     drawFood();
+
     if(scoreNum >= this.goldFuitCondition)drawGoldFood();
+    if(scoreNum > 20){clearInterval(game); victory();}
   
     let snakeX = snake[0].x;
     let snakeY = snake[0].y; 
@@ -141,6 +143,11 @@ function restartGame(){
 function gameOver(){
     restar.style.display = "none";
     alert("Obrigado por jogar !")    
+}
+
+function victory(){
+
+    alert("PARABÉNS, VOCE VENCEU !!!");
 }
 
 let game = setInterval(play, 100)

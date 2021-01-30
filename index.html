@@ -13,36 +13,37 @@
 </head>
 <body>
 
-    <div id="scoreBar">
-        <h1>Snake Game</h1>
-        <div class="score">
-            <p>SCORE:</p>
-            <h2 id="scoreNum" style="margin: 10px;"></h2>
+    
+        
+        <div id="titleGame">
+            <h1>Snake Game</h1>
+        </div>
+    <div id="content">
+        <canvas id="snake" width="500px" height="500px"></canvas>
+        <div id="score">
+            <div>
+                <p>SCORE:</p>
+                <h2 id="scoreNum" style="margin: 10px;"></h2>
+            </div>
+
         </div>
     </div>
 
-<div>
-    <canvas id="snake" width="384" height="384"></canvas>
-    <div id="teste" width="180" height="384">
+        <div id="restart">
+            <p>
+                Jogar novamente ?
+            </p>
+            <ul>
+                <li>
+                
+                    <button type="button" class="btn btn-primary" id="yes">Sim</button>
+                </li>
+                <li >
 
-    </div>
-</div>
-
-
-    <div id="restart">
-        <p>
-            Jogar novamente ?
-        </p>
-        <ul>
-            <li>
-               
-                <button type="button" class="btn btn-primary" id="yes">Sim</button>
-            </li>
-            <li >
-
-                <button type="button" class="btn btn-primary" id="no">Não</button>
-            </li>
-        </ul>
-    </div>
+                    <button type="button" class="btn btn-primary" id="no">Não</button>
+                </li>
+            </ul>
+        </div>
+    
 </body>
 </html>

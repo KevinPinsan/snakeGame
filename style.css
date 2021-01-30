@@ -13,38 +13,57 @@ body{
 
     background-image:url(assets/backGroundWallpaper.jpg)
 }
-#scoreBar{
+
+#content{
+    display:flex;
+}
+#titleGame{
     display: flex;
-    width: 384px;
-    height: 50px;
+    width: 649px;
+    height: 70px;
     z-index: 0;
     background-color: lightblue;
     border: 1px solid lightblue;
     border-radius: 10px 12px 0px 0px;
     box-shadow: 0px 0px 19px rgb(85, 58, 42);
     border-bottom: 4px solid black;
-    box-shadow: 0px -7px 15px 3px rgb(85,58,42);
+    box-shadow: 0px -7px 12px 3px rgb(85,58,42);
+    justify-content:center;
+    align-items:center;
 }
-.score{
+
+#score{
+    display: grid;
+    justify-content: center;
+    width: 145px;
+    height: 500px;
+    background-color:lightblue;
+    border-left: 4px solid black;
+    border-radius: 0px 0px 12px 0px;
+    box-shadow: 7px 7px 12px 0px rgb(85,58,42);
+}
+
+#score div{
     display: flex;
-    height: 100%;
-    width: 100%;
-    margin-left: 1em;
+    height: auto;
+    width: auto;
+    margin:0px;
+    font-size: 1.255rem;
 }
 
 canvas{
     border: 1px solid lightblue;
-    border-radius:0px 0px 12px 12px;
+    border-radius:0px 0px 0px 12px;
     box-shadow: 0px 0px 19px 15px rgb(85,58,42);
 }
 
 h1{
-    width: 90vw;
+    text-shadow: 3px 0px black;
+    font-size: 3rem;
+    width: auto;
     font-family: 'Chakra Petch', sans-serif;
     color: green;
     display: flex;
-    align-items: center;
-    margin-left: 1rem;
 }
 #restart{
     width: 220px;
