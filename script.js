@@ -60,7 +60,7 @@ function play(){
     for(i = 1; i < snake.length; i++){
         if(snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
             this.parou = true
-            alert("Voce Perdeu ! que pena, tente novamente.")
+            alert("Você perdeu! Que pena, tente novamente.")
             let restar = document.getElementById("restart");
         }
     }
@@ -129,6 +129,7 @@ let yes = document.getElementById("yes");
 yes.addEventListener("click", restartGame)
 yes.addEventListener("click", ()=>{
     timer(1, 60)
+    this.parou = false;
 })
 no.addEventListener("click", gameOver)
 
