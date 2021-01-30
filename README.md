@@ -14,4 +14,6 @@
 * Praticar o desenvolvimento front e back end, conhecer a lógica por trás deste game e adicionar novas funcionalidades.
 
 
+joge o game acessando: snake-game-k.vercel.app/
+
 
