@@ -70,7 +70,7 @@ function play(){
     drawFood();
 
     if(scoreNum >= this.goldFuitCondition)drawGoldFood();
-    if(scoreNum > 20){clearInterval(game); victory();}
+    if(scoreNum > 9){clearInterval(game); victory();}
   
     let snakeX = snake[0].x;
     let snakeY = snake[0].y; 
@@ -127,6 +127,9 @@ function play(){
 let restar = document.getElementById("restart");
 let yes = document.getElementById("yes");
 yes.addEventListener("click", restartGame)
+yes.addEventListener("click", ()=>{
+    timer(0, 60)
+})
 no.addEventListener("click", gameOver)
 
 function restartGame(){
@@ -135,7 +138,9 @@ function restartGame(){
     while(snake.length > 1){
         snake.pop();
     }
+
     game = setInterval(play, 100);
+
     scoreNum = 0;
     score(scoreNum);
 }
@@ -146,9 +151,42 @@ function gameOver(){
 }
 
 function victory(){
-
-    alert("PARABÉNS, VOCE VENCEU !!!");
+    clearInterval(game)
+    restar.style.display = "block";
 }
 
-let game = setInterval(play, 100)
+function timer(min = 0, seg = 60){
+    
+    function minutos(){
+        if(min > 0) min--; 
+    }
+    
+    function segundos(){
+        seg == 0 ? seg = 60 : seg--;
+        timerValid(min, seg)
+
+        let teste = document.getElementById("timerCont")
+        
+        let x = `${min}:${seg}`;
+        if(seg < 10){
+            x = `0${min}:0${seg}`;
+        }
+        teste.innerHTML = (x)
+    }
+
+    let timerMin = setInterval(minutos,60000)
+    let timerSeg = setInterval(segundos,1000)
+    
+    function timerValid(min, seg){
+        if(min == 0 && seg == 0){
+            clearInterval(timerMin);
+            clearInterval(timerSeg);
+            clearInterval(game);
+            restar.style.display = "block";
+        }
+    }    
+}
+
+timer(min = 0, seg = 60) // dispara o cronometro
+let game = setInterval(play, 100);
 

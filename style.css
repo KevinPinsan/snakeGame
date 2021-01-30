@@ -32,9 +32,10 @@ body{
     align-items:center;
 }
 
-#score{
+#infoGame{
     display: grid;
     justify-content: center;
+    align-content: baseline;
     width: 145px;
     height: 500px;
     background-color:lightblue;
@@ -43,12 +44,23 @@ body{
     box-shadow: 7px 7px 12px 0px rgb(85,58,42);
 }
 
-#score div{
+#infoGame div{
     display: flex;
-    height: auto;
+    height: 80px;
     width: auto;
     margin:0px;
     font-size: 1.255rem;
+    margin-top: 20px;
+}
+
+#infoGame p {
+    margin-left: 4px;
+}
+
+.infoGame{
+    height: 50px;
+    font-size:22px;
+    margin :5px;
 }
 
 canvas{
