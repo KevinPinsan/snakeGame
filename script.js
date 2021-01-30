@@ -70,7 +70,7 @@ function play(){
     drawFood();
 
     if(scoreNum >= this.goldFuitCondition)drawGoldFood();
-    if(scoreNum > 9){clearInterval(game); victory();}
+    if(scoreNum > 99){clearInterval(game); victory();}
   
     let snakeX = snake[0].x;
     let snakeY = snake[0].y; 
@@ -187,6 +187,6 @@ function timer(min = 0, seg = 60){
     }    
 }
 
-timer(min = 0, seg = 60) // dispara o cronometro
+timer(min = 2, seg = 60) // dispara o cronometro
 let game = setInterval(play, 100);
 
