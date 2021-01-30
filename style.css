@@ -47,7 +47,7 @@ body{
 #infoGame div{
     display: flex;
     height: 80px;
-    width: auto;
+    width: 140px;
     margin:0px;
     font-size: 1.255rem;
     margin-top: 20px;

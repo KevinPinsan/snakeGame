@@ -59,9 +59,9 @@ function play(){
 
     for(i = 1; i < snake.length; i++){
         if(snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
-            clearInterval(game)
+            this.parou = true
+            alert("Voce Perdeu ! que pena, tente novamente.")
             let restar = document.getElementById("restart");
-            restar.style.display = "block";
         }
     }
     
@@ -123,12 +123,12 @@ function play(){
 
     snake.unshift(newHead);    
 }
-
+////
 let restar = document.getElementById("restart");
 let yes = document.getElementById("yes");
 yes.addEventListener("click", restartGame)
 yes.addEventListener("click", ()=>{
-    timer(0, 60)
+    timer(1, 60)
 })
 no.addEventListener("click", gameOver)
 
@@ -151,31 +151,35 @@ function gameOver(){
 }
 
 function victory(){
-    clearInterval(game)
+
+    this.parou = true
+    alert("Parabens! você venceu.")
     restar.style.display = "block";
 }
 
-function timer(min = 0, seg = 60){
+function timer(min, seg){
     
     function minutos(){
         if(min > 0) min--; 
     }
     
     function segundos(){
+
+        
         seg == 0 ? seg = 60 : seg--;
         timerValid(min, seg)
 
         let teste = document.getElementById("timerCont")
         
-        let x = `${min}:${seg}`;
+        let x = `0${min}:${seg}`;
         if(seg < 10){
             x = `0${min}:0${seg}`;
         }
         teste.innerHTML = (x)
     }
 
-    let timerMin = setInterval(minutos,60000)
-    let timerSeg = setInterval(segundos,1000)
+    this.timerMin = setInterval(minutos,60110)
+    this.timerSeg = setInterval(segundos,1000)
     
     function timerValid(min, seg){
         if(min == 0 && seg == 0){
@@ -183,10 +187,16 @@ function timer(min = 0, seg = 60){
             clearInterval(timerSeg);
             clearInterval(game);
             restar.style.display = "block";
+        }else if(this.parou == true){
+            clearInterval(timerMin);
+            clearInterval(timerSeg);
+            clearInterval(game);
+            restar.style.display = "block";
         }
+        
     }    
 }
 
-timer(min = 2, seg = 60) // dispara o cronometro
+timer(min = 1, seg = 60) // dispara o cronometro
 let game = setInterval(play, 100);
 
